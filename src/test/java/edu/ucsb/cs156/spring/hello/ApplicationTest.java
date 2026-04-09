@@ -11,7 +11,7 @@ public class ApplicationTest {
 
   @Test
   public void test_that_application_starts_without_crashing() {
-    Application.main(new String[] {});
+    Application.main(new String[] { "--spring.main.web-application-type=none" });
     assertTrue(true);
   }
 }

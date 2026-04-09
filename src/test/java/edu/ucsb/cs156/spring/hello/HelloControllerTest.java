@@ -1,13 +1,11 @@
 package edu.ucsb.cs156.spring.hello;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.batch.BatchProperties.Job;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -40,13 +38,19 @@ public class HelloControllerTest {
     }
 
     @Test
-    public void getInfo_has_developer_info_header() throws Exception {
+    public void getInfo_has_expected_content() throws Exception {
          MvcResult response = mvc.perform(MockMvcRequestBuilders.get("/info").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()).andReturn();
         String actualContent = response.getResponse().getContentAsString();
-        String expectedContent = "<h1>Developer Info</h1>";
-
-        assertTrue(actualContent.contains(expectedContent),String.format("Expected content to contain: [%s]\nActual content: [%s]", expectedContent, actualContent));
+        String expectedContent = """
+                <h1>Developer Info</h1>
+                <ul>
+                  <li>Name: Brian L.</li>
+                  <li>Github ID: <a href="https://github.com/Brian-W-Li">Brian-W-Li</a></li>
+                  <li>Team: <a href="/team">s26-16</a></li>
+                </ul>
+                """;
+        assertEquals(expectedContent, actualContent);
     }
 
 
@@ -61,8 +65,5 @@ public class HelloControllerTest {
         assertEquals(expectedTeam, teamReturned);
     }
 
-
-    // TODO: Add additional tests as needed to get to 100% jacoco line coverage, and
-    // 100% mutation coverage (all mutants timed out or killed)
 
 }
