@@ -1,6 +1,7 @@
 # jpa02-Brian-W-Li
 
-Repo: https://ucsb-cs156-s26/jpa02-Brian-W-Li
+Repo: [https://ucsb-cs156-s26/jpa02-Brian-W-Li](https://github.com/ucsb-cs156-s26/jpa02-Brian-W-Li
+)
 
 
 Deployed at: https://jpa02-brian-w-li.dokku-03.cs.ucsb.edu
