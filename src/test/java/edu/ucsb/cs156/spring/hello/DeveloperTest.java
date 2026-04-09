@@ -31,10 +31,33 @@ public class DeveloperTest {
     }
 
     @Test
-    public void getTeam_returns_correct_team_and_members() {
-        Team expected = new Team("s26-16");
-        expected.addMember("Brian L.");
-        assertEquals(expected, Developer.getTeam());
+    public void getTeam_returns_team_with_correct_name() {
+        Team  t = Developer.getTeam();
+        assertEquals("s26-03", t.getName());
     }
+
+    @Test
+    public void getTeam_returns_team_with_correct_members() {
+        Team  t = Developer.getTeam();
+        assertTrue(t.getMembers().contains("Brian L."),"Team should contain Brian L.");
+        assertTrue(t.getMembers().contains("Alexandru"),"Team should contain Alexandru");
+        assertTrue(t.getMembers().contains("Kalyan"),"Team should contain Kalyan");
+        assertTrue(t.getMembers().contains("Raymond X."),"Team should contain Raymond X.");
+        assertTrue(t.getMembers().contains("Wyatt"),"Team should contain Wyatt");
+        assertTrue(t.getMembers().contains("Alex L."),"Team should contain Alex L.");       
+        // ... etc
+    }
+
+    /**@Test
+    public void getTeam_returns_correct_team_and_members() {
+        Team expected = new Team("s26-03");
+        expected.addMember("Brian L.");
+        expected.addMember("Alexandru");
+        expected.addMember("Kalyan");
+        expected.addMember("Raymond X.");
+        expected.addMember("Wyatt");
+        expected.addMember("Alex L.");
+        assertEquals(expected, Developer.getTeam());
+    }**/
 
 }

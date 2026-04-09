@@ -47,7 +47,7 @@ public class HelloControllerTest {
                 <ul>
                   <li>Name: Brian L.</li>
                   <li>Github ID: <a href="https://github.com/Brian-W-Li">Brian-W-Li</a></li>
-                  <li>Team: <a href="/team">s26-16</a></li>
+                  <li>Team: <a href="/team">s26-03</a></li>
                 </ul>
                 """;
         assertEquals(expectedContent, actualContent);
