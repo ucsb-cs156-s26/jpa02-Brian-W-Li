@@ -93,7 +93,7 @@ public class TeamTest {
     }
 
     @Test
-    public void toString_returns_expected_value() {
+    public void toString_returns_correct_string() {
         assertEquals("Team(name=test-team, members=[])", team.toString());
     }
 
